@@ -8,41 +8,41 @@ import { requestBackend } from 'util/requests';
 import './styles.css';
 
 const MovieCatalog = () => {
-
   const [page, setPage] = useState<SpringPage<Movie>>();
- 
+
   useEffect(() => {
-    const params : AxiosRequestConfig = {
-      url: "/movies",
+    const params: AxiosRequestConfig = {
+      url: '/movies',
       withCredentials: true,
     };
     requestBackend(params).then((response) => {
       setPage(response.data);
     });
   }, []);
- 
-  
+
   return (
     <>
-    <h1>ta aquimmmcmncn</h1>
-    <div className="home-container">
-      <div className="home-title">
-        <h1>Tela listagem de filmes</h1>
-      </div>
+      <div className="home-container">
+        <div className="home-title">
+          <h1>Tela listagem de filmes</h1>
+        </div>
 
-      <Link to="/movies">
         <div className="home-item">
-          <p>
-            <a href="/movies/1">Acessar /movies/1</a>
-          </p>
+          <Link to="/movies/1">
+            <p>Acessar /movies/1</p>
+          </Link>
         </div>
         <div className="home-item">
-          <p>
-            <a href="/movies/2">Acessar /movies/2</a>
-          </p>
+          <Link to="/movies/2">
+            <p>Acessar /movies/2</p>
+          </Link>
         </div>
-      </Link>
-    </div>
+        <div className="home-item">
+          <Link to="/movies/3">
+            <p>Acessar /movies/3</p>
+          </Link>
+        </div>
+      </div>
     </>
   );
 };

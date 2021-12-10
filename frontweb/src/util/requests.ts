@@ -16,6 +16,11 @@ export const BASE_URL =
     username: string;
     password: string;
   };
+
+  type MovieSendReviewData = {
+    movieId: number;
+    text: string;
+  };
   
   export const requestBackendLogin = (loginData: LoginData) => {
     const headers = {
@@ -47,6 +52,23 @@ export const BASE_URL =
   
     return axios({ ...config, baseURL: BASE_URL, headers });
   };
+
+
+  export const requestPostMovieSendReview = (movieSendReviewData: MovieSendReviewData) => {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + getAuthData().access_token,
+    };
+  
+    return axios({
+      method: 'POST',
+      baseURL: BASE_URL,
+      url: '/reviews',
+      data: movieSendReviewData,
+      headers,
+      withCredentials: true,
+    });
+  };
   
   // Add a request interceptor
   axios.interceptors.request.use(
@@ -64,7 +86,7 @@ export const BASE_URL =
       return response;
     },
     function (error) {
-      if (error.response.status === 401) {
+      if (error.response.status === 401 || error.response.status === 403) {
         history.push('/');
       }
       return Promise.reject(error);

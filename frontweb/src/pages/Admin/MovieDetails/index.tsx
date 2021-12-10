@@ -41,7 +41,7 @@ const MovieDetails = () => {
           <div className="row">
             <div className="col-xl-6">
               <div className="movie-img-container">
-                <img src={movie?.imageUrl} alt={movie?.title}></img>
+                <img src={movie?.imgUrl} alt={movie?.title}></img>
               </div>
               <div className="movie-title-container">
                 <h1>{movie?.title} </h1>
@@ -64,7 +64,9 @@ const MovieDetails = () => {
         </div>
         <div className="col-xl-12">
           {hasAnyRoles(['ROLE_MEMBER']) && (
-            <MovieReview movieId={movieId} />
+            <>
+              <MovieReview movieId={movieId} />
+            </>
           )}
         </div>
       </div>

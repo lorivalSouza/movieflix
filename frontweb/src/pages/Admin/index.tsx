@@ -1,6 +1,5 @@
 import PrivateRoute from 'components/PrivateRoute';
 import { Switch } from 'react-router-dom';
-import Users from './Users'; 
 
 import './styles.css';
 import MovieCatalog from './MovieCatalog';
