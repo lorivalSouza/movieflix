@@ -25,7 +25,7 @@ const Movie = () => {
   }, []);
  
   return (
-    <div>
+    <div className='admin-container'>
       {page?.content.map((item) => (
         <p key={item.id}>{item.title}</p>
       ))}

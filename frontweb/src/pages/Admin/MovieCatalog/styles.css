@@ -4,38 +4,131 @@
   align-items: flex-start;
 }
 
-.home-title {
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 50px;
+.movie-home{
+  background-color: #525252;
 }
 
-.home-title h1 {
-  text-align: center;
-  font-weight: bold;
+.movie-item-details-container {
   font-size: 24px;
-  letter-spacing: -0.015em;
-  color: #ffffff;
+  padding: 20px 20px 20px 20px;
 }
 
-.home-item p {
-    padding-left: 15px;
-  font-weight: normal;
-  font-size: 18px;
+.movie-item-img-container {
+  text-align: left;
+}
+
+.movie-item-title-container{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.movie-item-img-container img{
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.movie-item-img-container h1, h2, h4, p {
+  color: #fff;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  padding-left: 15px;
+}
+
+.movie-item-img-container h6 {
+  color: #FFC700;
+  letter-spacing: -0.015em;
+  padding-left: 15px;
+}
+
+.movie-item-img-container h1 {
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.movie-item-img-container h2 {
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+.movie-item-img-container h4 {
+  font-weight: 400;
+  font-size: 0.7em;
+  padding-bottom: 15px;
+}
+
+.movie-item-img-container h2 {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.movie-item-img-container p {
+  font-weight: 400;
+  font-size: 0.5em;
+}
+
+.col-xl-6 {
+  background: #525252;
+
+}
+
+.details-card{
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.container-details {
+  margin-bottom: 20px;
+}
+
+.form-container input {
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.review-input::placeholder {
+  padding-left: 10px;
+  font-weight: normal;
+  font-size: 0.6em;
+  line-height: 22px;
+  text-align: left;
+  align-items: center;
+  letter-spacing: -0.015em;
+  color: #9e9e9e;
+}
+
+@media(min-width:576px){
 }
 
 @media(min-width:992px){
-  .home-title {
-    margin-top: 30px;
+
+  .movie-item-synopsis-container {
+      margin-top: 30px;
   }
 
-  .home-title h1 {
-    font-size: 2em;
+  .movie-item-details-container h1 {
+      font-size: 1.2em;
   }
   
-  .home-item p {
-    font-size: 1.5em;
+  .movie-item-details-container h2 {
+      font-size: 1em;
+  }
+  
+  .movie-item-details-container h4 {
+      font-size: 0.9em;
+  }
+  
+  .movie-item-synopsis-container h2 {
+      font-size: 1em;
+  }
+  
+  .movie-item-synopsis-container h4 {
+      font-size: 0.8em;
+  }
+  
+  .movie-item-details-container p {
+      font-size: 0.7em;
+  }
+
+  .review-input::placeholder {
+      font-size: 1em;
   }
 }

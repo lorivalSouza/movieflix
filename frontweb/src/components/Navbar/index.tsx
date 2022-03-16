@@ -1,6 +1,6 @@
 import { AuthContext } from 'AuthContext';
 import { useContext, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getTokenData, isAuthenticated } from 'util/auth';
 import history from 'util/history';
 import { removeAuthData } from 'util/storage';
@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar main-nav">      
-      <NavLink to="/admin/movies" className="nav-logo-text">        
+      <NavLink to="/movies" className="nav-logo-text">        
         <h4>MOVIEFLIX</h4>
       </NavLink>
       {authContextData.authenticated ? (

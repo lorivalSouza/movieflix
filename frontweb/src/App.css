@@ -7,6 +7,12 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 h1,
 h2,
 h3,
@@ -20,4 +26,9 @@ a,
 a:hover {
   text-decoration: none;
   color: unset;
+}
+
+.base-card {
+  background-color: #6C6C6C;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }

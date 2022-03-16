@@ -48,7 +48,7 @@ const MovieDetails = () => {
               </div>
               <div className="movie-sub-title-container">
                 <h4>{movie?.subTitle}</h4>
-                <h6>Ano: {movie?.year}</h6>
+                <h6> {movie?.year} </h6>
               </div>
               <div className="movie-genre-container">
                 {movie && <p> {movie?.genre.name}</p>}

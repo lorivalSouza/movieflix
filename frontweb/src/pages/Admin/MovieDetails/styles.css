@@ -19,6 +19,12 @@
     padding-left: 15px;
 }
 
+.movie-details-container h6 {
+    color: #FFC700;
+    letter-spacing: -0.015em;
+    padding-left: 15px;
+}
+
 .movie-details-container h1 {
     font-weight: 700;
     font-size: 1em;

@@ -1,0 +1,57 @@
+.movie-item-search-container {
+  padding: 10px 10px 10px 10px;
+  margin: 20px 20px 0 15px;
+}
+
+.movie-filter-genre-container {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.movie-filter-genre-container select {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  
+}
+
+.movie-filter-select__control {
+  border: none !important;
+  font-size: 1em;
+  letter-spacing: -0.015em;
+  border-bottom: 1px solid #ffffff !important;
+  background-color: #6C6C6C !important;
+  color: #ffff !important;
+}
+
+.movie-filter-select__placeholder {
+  color: #ffffff !important;
+}
+
+.movie-filter-select__indicator-separator {
+  display: none;
+}
+
+@media(min-width:576px){
+  .movie-filter-genre-container {
+    width: 60%;
+  }
+}
+
+@media(min-width: 768px) {
+  .movie-filter-genre-container {
+    width: 40%;
+  }
+  
+}
+
+@media(min-width: 992px) {
+  .movie-filter-genre-container {
+    width: 30%;
+  }
+}

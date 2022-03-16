@@ -1,5 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
-import { useEffect, useState } from 'react';
+import MovieFilter, { MovieFilterData } from 'components/MovieFilter';
+import Pagination from 'components/Pagination';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'type/movie';
 import { SpringPage } from 'type/vendor/spring';
@@ -7,41 +9,83 @@ import { requestBackend } from 'util/requests';
 
 import './styles.css';
 
+type ControlComponentsData = {
+  activePage: number;
+  filterData: MovieFilterData;
+};
+
 const MovieCatalog = () => {
   const [page, setPage] = useState<SpringPage<Movie>>();
 
-  useEffect(() => {
-    const params: AxiosRequestConfig = {
+  const [controlComponentsData, setControlComponentsData] =
+    useState<ControlComponentsData>({
+      activePage: 0,
+      filterData: {
+        genre: null,
+      },
+    });
+
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({
+      activePage: pageNumber,
+      filterData: controlComponentsData.filterData,
+    });
+  };
+
+  const handleSubmitFilter = (data: MovieFilterData) => {
+    setControlComponentsData({
+      activePage: 0,
+      filterData: data,
+    });
+  };
+
+  const getMovies = useCallback(() => {
+    const config: AxiosRequestConfig = {
+      method: 'GET',
       url: '/movies',
       withCredentials: true,
+      params: {
+        page: controlComponentsData.activePage,
+        //size: 4,
+        genreId: controlComponentsData.filterData.genre?.id
+      },
     };
-    requestBackend(params).then((response) => {
+    requestBackend(config).then((response) => {
       setPage(response.data);
     });
-  }, []);
+  }, [controlComponentsData]);
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]);
 
   return (
     <>
-      <div className="home-container">
-        <div className="home-title">
-          <h1>Tela listagem de filmes</h1>
-        </div>
+      <MovieFilter onSubimitFilter={handleSubmitFilter} />
 
-        <div className="home-item">
-          <Link to="/movies/1">
-            <p>Acessar /movies/1</p>
-          </Link>
+      <div className="movie-item-container">
+        <div className="row">
+          {page?.content.map((movie) => (
+            <div className="col-sm-6 col-xl-3" key={movie.id}>
+              <Link to={`/movies/${movie.id}`}>
+                <div className="movie-item-details-container">
+                  <div className="base-card movie-item-img-container">
+                    <img src={movie?.imgUrl} alt={movie?.title}></img>
+                    <h1>{movie?.title} </h1>
+                    <h6> {movie?.year} </h6>
+                    <h4>{movie?.subTitle}</h4>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
-        <div className="home-item">
-          <Link to="/movies/2">
-            <p>Acessar /movies/2</p>
-          </Link>
-        </div>
-        <div className="home-item">
-          <Link to="/movies/3">
-            <p>Acessar /movies/3</p>
-          </Link>
-        </div>
+        <Pagination
+        forcePage={page?.number}
+          pageCount={page ? page.totalPages : 0}
+          range={3}
+          onChange={handlePageChange}
+        />
       </div>
     </>
   );
