@@ -33,6 +33,10 @@
   color: #ffffff !important;
 }
 
+.movie-filter-select__single-value {
+  color: #ffffff !important;
+  }
+
 .movie-filter-select__indicator-separator {
   display: none;
 }

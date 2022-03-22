@@ -17,8 +17,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 	
 	@Query("SELECT DISTINCT obj FROM Movie obj INNER JOIN obj.genre gen "
 			+ "WHERE "
-			+ "(COALESCE(:genre) IS NULL OR gen IN :genre)"
-			+ "ORDER BY obj.title")
+			+ "(COALESCE(:genre) IS NULL OR gen IN :genre)")
 	Page<Movie> find(Genre genre, Pageable pageable);
 	
 	@Query("SELECT  obj FROM Movie obj JOIN FETCH obj.genre WHERE obj IN :movies")

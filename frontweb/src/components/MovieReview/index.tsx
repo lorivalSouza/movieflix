@@ -1,5 +1,4 @@
 import { AxiosRequestConfig } from 'axios';
-import MovieSendReview from 'components/MovieSendReview';
 import ResultCard from 'components/ResultCard';
 import { useEffect, useState } from 'react';
 import { Review } from 'type/review';
@@ -32,7 +31,6 @@ const MovieReview = ({ movieId }: Props) => {
   return (
     <>
       <div className="review-container">
-        <MovieSendReview movieId={movieId} />
         <>
           <div className="details-card">
             <div className="base-card comment-card">

@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import MovieReview from 'components/MovieReview';
+import MovieSendReview from 'components/MovieSendReview';
 import ResultCard from 'components/ResultCard';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -65,9 +66,11 @@ const MovieDetails = () => {
         <div className="col-xl-12">
           {hasAnyRoles(['ROLE_MEMBER']) && (
             <>
-              <MovieReview movieId={movieId} />
+              <MovieSendReview movieId={movieId} />
+              
             </>
           )}
+          <MovieReview movieId={movieId} />
         </div>
       </div>
     </>
